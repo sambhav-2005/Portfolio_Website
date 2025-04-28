@@ -1,0 +1,112 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(8, 5, 16);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #f9fafb;
+  }
+  
+  #cvFormSection {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+    padding: 20px;
+    animation: fadeIn 1.2s ease;
+
+  }
+  
+  .form-container {
+    background-color:#292e33;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px #12f7ff;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    border-image: linear-gradient(45deg, #12f7ff, #0cb6d4, #11859c) 1;
+    border: 3px solid;
+  }
+  
+  .form-container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    font-size: 30px;
+    color: #bff7f9;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  p {
+    color:#f3f9fa;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #cvForm label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    color:#02c6d7;
+  }
+  
+  #cvForm input, #cvForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease;
+   
+  }
+  
+  #cvForm input:focus, #cvForm textarea:focus {
+    box-shadow:  0 10px 30px #292e33;
+    outline: none;
+
+    
+   
+  }
+  
+  #cvForm button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #cvForm button:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Fade-In Animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
