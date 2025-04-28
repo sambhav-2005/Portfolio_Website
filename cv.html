@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your CV</title>
+  <link rel="stylesheet" href="cv.css">
+  <script src="cv.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+  <section id="cvFormSection">
+    <div class="form-container">
+      <h2>Create Your Custom CV</h2>
+      <p>Fill in the details below to generate a personalized CV you can download.</p>
+      <form id="cvForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required placeholder="Your Full Name">
+
+        <label for="jobTitle">Job Title</label>
+        <input type="text" id="jobTitle" required placeholder="Your Job Title">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="Your Email">
+
+        <label for="skills">Skills (comma-separated)</label>
+        <input type="text" id="skills" required placeholder="E.g., JavaScript, UX Design">
+
+        <label for="experience">Experience</label>
+        <textarea id="experience" required placeholder="Describe your work experience..."></textarea>
+
+        <button type="button" onclick="generateCV()">Generate and Download CV</button>
+      </form>
+    </div>
+  </section>
+  <script>
+  const username = document.getElementById('name');
+  const usernameError = document.getElementById('nameError');
+  const form = document.getElementById('advancedForm');
+  const email = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+  const jobTitle = document.getElementById('jobTitle');
+  const jobTitleError= document.getElementById('jobTitleError');
+  const skills = document.getElementById('skills');
+  const skillsError = document.getElementById('skillsError');
+  const experience = document.getElementById('experience');
+  const experienceError = document.getElementById('experienceError');
+
+  username.addEventListener('input',()=>validateUsername());
+  email.addEventListener('input',()=> validateemail());
+  jobTitle.addEventListener('input', ()=>validatejobTitle());
+  skills.addEventListener('input',()=> validateskills());
+  experience.addEventListener('input',()=> validateexperience());
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+
+    const isFormValid = [validateUsername(),validateemail(), validatejobTitle(),validateskills(),validateexperience()].every(Boolean);
+
+    if(isFormValid){
+      alert("Form Submitted successfully");
+    }
+  });
+
+  function validateUsername() {
+    const value = username.value.trim();
+    const regex = /^[a-zA-Z0-9]{3,}$/
+
+    if(!value){
+      setError(username,usernameError,"Username is required!");
+      return false;
+    }else if(!regex.test(value)){
+      setError(username,usernameError,"Username must be 3 characters long and alphanumeric");
+      return false;
+    }else{
+      setSuccess(username,usernameError);
+      return true;
+    }
+  }
+
+  function validateemail(){
+    const value = email.value.trim();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if(!value){
+      setError(email,emailError,"Email is required!");
+      return false;
+    }else if(!regex.test(value)){
+      setError(email,emailError,"Email is invalid");
+      return false;
+    }else{
+      setSuccess(email,emailError);
+      return true;
+    }
+
+    }
+
+
+  function setError(input,errorElement,message){
+    input.classList.add('invalid');
+    input.classList.remove('valid');
+    errorElement.textContent = message;
+  }
+
+  function setSuccess(input,errorElement){
+    input.classList.add('valid');
+    input.classList.remove('invalid');
+    errorElement.textContent = '';
+  }
+  </script>
+</body>
+</html>
