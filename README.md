@@ -38,10 +38,10 @@ cd Portfolio_Website
 ## 🖼 Project Preview
 
 ### Homepage
-![Homepage](./photos/Luxeon-1.jpg)
+![Homepage](./Pf1.png)
 
-### Latest Collections
-![Collections](./photos/Luxeon-2.jpg)
+### About me 
+![Collections](./Pf2.png)
 
-### Meet the Team
-![Team Section](./photos/Luxeon-3.jpg)
+### My Services
+![Team Section](./Pf3.png) 
