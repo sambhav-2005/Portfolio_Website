@@ -19,21 +19,21 @@ It uses clean, accessible, and mobile-friendly web design principles to ensure t
 <h2>🚀 Getting Started</h2>
 
 <pre><code># Clone the repository
-git clone https://github.com/yourusername/Luxeon.git
-cd Luxeon
+git clone https://github.com/sambhav-2005/Portfolio_Website.git
+cd Portfolio_Website
 </code></pre>
 
 <h2>🧑‍💻 Contributing</h2>
-<p>We welcome your contributions! If you have ideas to enhance Luxeon, feel free to fork the repo, open issues, or submit pull requests.</p>
+<p>We welcome your contributions! If you have ideas to enhance Portfolio_Website, feel free to fork the repo, open issues, or submit pull requests.</p>
 
 <h2>🌐 Live Demo</h2>
-<p>🔗 <a href="#">View Live Website</a> <em>(Coming soon)</em></p>
+<p>🔗 <a href="#">View Live Website</a><em>(Coming soon)</em></p>
 
 <h2>📬 Contact</h2>
 <p>Have questions or feedback?<br>
-📧 Email: <a href="https://mail.google.com/">shivennagpal8@gmail.com</a><br>
+📧 Email: <a href="https://mail.google.com/">sarthimahajan18@gmail.com</a><br>
 
-<p>⭐ <strong>If you love fashion and clean code, give Luxeon a star!</strong></p>
+<p>⭐ <strong>If you love our Portfolio and clean code, give Portfolio_Website a star!</strong></p>
 
 ## 🖼 Project Preview
 
