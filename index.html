@@ -15,9 +15,30 @@
         header.dark-mode, footer.dark-mode {
             background-color: #1e1e1e;
         }
-        .btn.dark-mode {
-            background-color: #333;
-            color: #4d424236;
+
+        /* Specific Button Styles for Dark Mode */
+        .btn {
+            background-color: #12f7ff; /* Default button color */
+            color: #ffffff;
+            border: none;
+            padding: 20px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode .btn {
+            background-color: #333; /* Button color in dark mode */
+            color: #ffffff;
+        }
+
+        /* Ensure the Dark Mode Toggle Button is Styled Separately */
+        #dark-mode-toggle {
+            background-color: #ccc;
+        }
+
+        #dark-mode-toggle.dark-mode {
+            background-color: #12f7ff;
         }
 
         /* Back-to-Top Button */
@@ -129,11 +150,11 @@
         <div class="info-box">
             <div class="email-info">
                 <h5>Email :</h5>
-                <span>rehaannarang1010@gmail.com</span>
+                <span>xyz@gmail.com</span>
             </div>
             <div class="behance-info">
                 <h5>Behance :</h5>
-                <span>behance.net/Narang</span>
+                <span>behance.net/abc</span>
             </div>
         </div>
             <div class="btn-box">
