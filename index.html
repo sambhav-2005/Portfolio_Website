@@ -103,6 +103,33 @@
         .toggle-switch.dark-mode .toggle-circle {
             transform: translateX(25px);
         }
+
+        /* Review Item Styles */
+        .review-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-item .rating {
+            font-size: 18px;
+            color: #ffcc00;
+        }
+
+        .review-item .username {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .review-item .timestamp {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -549,76 +576,40 @@
     </section>
     
     <!-- REVIEW SECTION -->
-     <section id="review" class="review">
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-       
-      <div class="container">
-        <h1>Portfolio Review</h1>
+<section id="review" class="review">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     
+    <div class="container">
+        <h1>Portfolio Review</h1>
+
         <!-- Review Form -->
         <div class="review-form">
-          <h2>Share Your Feedback</h2>
-    
-          <form id="review-form">
-            <div class="rating">
-              <input type="radio" id="star5" name="rating" value="5">
-              <label for="star5">★</label>
-              <input type="radio" id="star4" name="rating" value="4">
-              <label for="star4">★</label>
-              <input type="radio" id="star3" name="rating" value="3">
-              <label for="star3">★</label>
-              <input type="radio" id="star2" name="rating" value="2">
-              <label for="star2">★</label>
-              <input type="radio" id="star1" name="rating" value="1">
-              <label for="star1">★</label>
-            </div>
+            <h2>Share Your Feedback</h2>
 
-            <textarea id="review-text" placeholder="Write your review here..." required></textarea>
-    
-            <input type="submit" value="Submit Review">
-          </form>
+            <form id="review-form">
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">★</label>
+                </div>
+
+                <input type="text" id="review-name" placeholder="Your Name (optional)">
+                <textarea id="review-text" placeholder="Write your review here..." required></textarea>
+
+                <input type="submit" value="Submit Review">
+            </form>
         </div>
-    
-        <div class="reviews" id="reviews-container">
-          <h2>User Reviews</h2>
-        </div>
-    
-      </div>
-    
-      <script>
-        document.getElementById('review-form').addEventListener('submit', function (event) {
-          event.preventDefault();
-    
-      
-          const rating = document.querySelector('input[name="rating"]:checked');
-          const reviewText = document.getElementById('review-text').value;
-    
-          if (!rating || reviewText.trim() === '') {
-            alert('Please provide a rating and a review.');
-            return;
-          }
-    
 
-          const ratingValue = rating.value;
-
-          const reviewItem = document.createElement('div');
-          reviewItem.classList.add('review-item');
-    
-          reviewItem.innerHTML = `
-            <div class="rating">
-              ${'★'.repeat(ratingValue)}${'☆'.repeat(5 - ratingValue)}
-            </div>
-            <p class="username">Anonymous</p>
-            <p>${reviewText}</p>
-          `;
-    
-          document.getElementById('reviews-container').appendChild(reviewItem);
-    
-          document.getElementById('review-form').reset();
-          document.querySelector('input[name="rating"]:checked').checked = false;
-        });
-      </script>
-    
+        <!-- Reviews Container -->
+        <div id="reviews-container"></div>
+    </div>
 </section>
 
     <!-- FOOTER SECTION -->
@@ -655,6 +646,39 @@
     });
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('review-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const rating = document.querySelector('input[name="rating"]:checked');
+        const reviewText = document.getElementById('review-text').value;
+
+        if (!rating || reviewText.trim() === '') {
+            alert('Please provide a rating and a review.');
+            return;
+        }
+
+        const ratingValue = rating.value;
+        const reviewName = document.getElementById('review-name').value || 'Anonymous';
+        const timestamp = new Date().toLocaleString();
+
+        const reviewItem = document.createElement('div');
+        reviewItem.classList.add('review-item');
+
+        reviewItem.innerHTML = `
+            <div class="rating">
+                ${'★'.repeat(ratingValue)}${'☆'.repeat(5 - ratingValue)}
+            </div>
+            <p class="username">${reviewName}</p>
+            <p>${reviewText}</p>
+            <small class="timestamp">${timestamp}</small>
+        `;
+
+        document.getElementById('reviews-container').appendChild(reviewItem);
+
+        document.getElementById('review-form').reset();
+        document.querySelector('input[name="rating"]:checked').checked = false;
     });
 </script>
 
