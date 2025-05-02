@@ -17,7 +17,7 @@
         }
         .btn.dark-mode {
             background-color: #333;
-            color: #fff;
+            color: #4d424236;
         }
 
         /* Back-to-Top Button */
@@ -51,12 +51,45 @@
         @keyframes blink {
             50% { border-color: transparent; }
         }
+
+        /* Dark Mode Toggle Switch */
+        .toggle-switch {
+            width: 50px;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+
+        .toggle-switch.dark-mode {
+            background-color: #12f7ff;
+        }
+
+        .toggle-circle {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2.5px;
+            left: 2.5px;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-switch.dark-mode .toggle-circle {
+            transform: translateX(25px);
+        }
     </style>
 </head>
 <body>
 
     <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" class="btn">Toggle Dark Mode</button>
+    <div id="dark-mode-toggle" class="toggle-switch">
+        <span class="toggle-circle"></span>
+    </div>
 
     <!--Header Section-->
     <header>
@@ -587,6 +620,7 @@
         document.querySelector('header').classList.toggle('dark-mode');
         document.querySelector('footer').classList.toggle('dark-mode');
         document.querySelectorAll('.btn').forEach(btn => btn.classList.toggle('dark-mode'));
+        darkModeToggle.classList.toggle('dark-mode');
     });
 
     // Back-to-Top Button
