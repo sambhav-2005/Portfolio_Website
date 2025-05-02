@@ -6,9 +6,57 @@
     <title>Portfolio Website</title>
     <link rel="stylesheet" href="project.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+    <style>
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header.dark-mode, footer.dark-mode {
+            background-color: #1e1e1e;
+        }
+        .btn.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Back-to-Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #12f7ff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+        }
+
+        /* Typing Animation */
+        .typing {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid;
+            animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" class="btn">Toggle Dark Mode</button>
 
     <!--Header Section-->
     <header>
@@ -32,12 +80,12 @@
     <h1>Hi! I'm Portfolio Generator </h1>
         <div class="change-text">
             <h3>And I'm</h3>
-            <h3>
-                <span class="word">Youtuber</span>
+            <h3 class="typing">
+                
                 <span class="word">Web designer</span>
                 <span class="word">Frontend Developer</span>
                 <span class="word">UX/UI developer</span>
-                <span class="word">Graphic Designer</span>
+                
 
             </h3>
 
@@ -123,6 +171,10 @@
        </div>
   </div>
 </section>
+
+<!-- Back-to-Top Button -->
+<button id="back-to-top"><i class="bx bx-up-arrow-alt"></i></button>
+
             <!-- ABOUT SECTION -->
 
     <section id="about" class="about">
@@ -527,6 +579,29 @@
 <script src="script.js"></script>
 <script src="cv.js"></script>
 
+<script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('header').classList.toggle('dark-mode');
+        document.querySelector('footer').classList.toggle('dark-mode');
+        document.querySelectorAll('.btn').forEach(btn => btn.classList.toggle('dark-mode'));
+    });
+
+    // Back-to-Top Button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
 </body>
 </html>
