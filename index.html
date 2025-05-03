@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="X-UA-Compatible" content="width=device-width, initial-scale=1.0">
@@ -12,13 +13,16 @@
             background-color: #121212;
             color: #ffffff;
         }
-        header.dark-mode, footer.dark-mode {
+
+        header.dark-mode,
+        footer.dark-mode {
             background-color: #1e1e1e;
         }
 
         /* Specific Button Styles for Dark Mode */
         .btn {
-            background-color: #12f7ff; /* Default button color */
+            background-color: #12f7ff;
+            /* Default button color */
             color: #ffffff;
             border: none;
             padding: 20px 10px;
@@ -28,7 +32,8 @@
         }
 
         body.dark-mode .btn {
-            background-color: #333; /* Button color in dark mode */
+            background-color: #333;
+            /* Button color in dark mode */
             color: #ffffff;
         }
 
@@ -65,12 +70,21 @@
             border-right: 2px solid;
             animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
         }
+
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
+
         @keyframes blink {
-            50% { border-color: transparent; }
+            50% {
+                border-color: transparent;
+            }
         }
 
         /* Dark Mode Toggle Switch */
@@ -130,11 +144,12 @@
             margin-top: 5px;
             display: block;
         }
- 
+
         /* Reviews Section Styles */
         .review {
             padding: 50px 20px;
-            background-color: #1e1e1e; /* Matches dark mode theme */
+            background-color: #1e1e1e;
+            /* Matches dark mode theme */
             color: #ffffff;
             text-align: center;
         }
@@ -142,7 +157,8 @@
         .review h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #12f7ff; /* Accent color */
+            color: #12f7ff;
+            /* Accent color */
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -151,7 +167,8 @@
             margin: 20px auto;
             max-width: 600px;
             text-align: left;
-            background: #2a2a2a; /* Dark background for form */
+            background: #2a2a2a;
+            /* Dark background for form */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -160,7 +177,8 @@
         .review-form h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
-            color: #12f7ff; /* Accent color */
+            color: #12f7ff;
+            /* Accent color */
         }
 
         .review-form .rating {
@@ -177,21 +195,25 @@
         /* Style the stars */
         .review-form .rating label {
             font-size: 2rem;
-            color: #ccc; /* Default star color */
+            color: #ccc;
+            /* Default star color */
             cursor: pointer;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         /* Highlight stars on hover */
         .review-form .rating label:hover,
-        .review-form .rating label:hover ~ label {
-            color: #ffcc00; /* Highlight color */
-            transform: scale(1.2); /* Slightly enlarge on hover */
+        .review-form .rating label:hover~label {
+            color: #ffcc00;
+            /* Highlight color */
+            transform: scale(1.2);
+            /* Slightly enlarge on hover */
         }
 
         /* Highlight selected stars */
-        .review-form .rating input[type="radio"]:checked ~ label {
-            color: #ffcc00; /* Highlight color for selected stars */
+        .review-form .rating input[type="radio"]:checked~label {
+            color: #ffcc00;
+            /* Highlight color for selected stars */
         }
 
         .review-form input[type="text"],
@@ -202,13 +224,15 @@
             border: 1px solid #444;
             border-radius: 5px;
             font-size: 1rem;
-            background-color: #333; /* Dark input background */
+            background-color: #333;
+            /* Dark input background */
             color: #fff;
         }
 
         .review-form input[type="text"]:focus,
         .review-form textarea:focus {
-            border-color: #12f7ff; /* Accent color */
+            border-color: #12f7ff;
+            /* Accent color */
             outline: none;
             background-color: #444;
         }
@@ -235,7 +259,8 @@
         }
 
         .review-item {
-            background-color: #2a2a2a; /* Matches form background */
+            background-color: #2a2a2a;
+            /* Matches form background */
             border: 1px solid #444;
             border-radius: 8px;
             padding: 15px;
@@ -245,14 +270,16 @@
 
         .review-item .rating {
             font-size: 1.5rem;
-            color: #ffcc00; /* Star color */
+            color: #ffcc00;
+            /* Star color */
             margin-bottom: 10px;
         }
 
         .review-item .username {
             font-weight: bold;
             margin-top: 5px;
-            color: #12f7ff; /* Accent color */
+            color: #12f7ff;
+            /* Accent color */
         }
 
         .review-item .timestamp {
@@ -269,6 +296,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Dark Mode Toggle -->
@@ -288,56 +316,55 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="#review">Review</a></li>
         </ul>
-        <div id="menu-icon" class="bx bx-menu"></div> 
-        
+        <div id="menu-icon" class="bx bx-menu"></div>
+
     </header>
 
-<!-- ----------home section-------------- -->
-<section id="home" class="home">
-    <div class="home-content">
-    <h1>Hi! I'm Portfolio Generator </h1>
-        <div class="change-text">
-            <h3>And I'm</h3>
-            <h3 class="typing">
+    <!-- ----------home section-------------- -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>Hi! I'm Portfolio Generator </h1>
+            <div class="change-text">
+                <h3>And I'm</h3>
+                <h3 class="typing">
 
-                <span class="word">Web designer</span>
-                <span class="word">Frontend Developer</span>
-                <span class="word">UX/UI developer</span>
-                
-
-            </h3>
+                    <span class="word">Web designer</span>
+                    <span class="word">Frontend Developer</span>
+                    <span class="word">UX/UI developer</span>
 
 
-        </div>
-        <p>Product Designer and Digital Creative Director working in design field for 10 years so far.specialized in UI/UX, Branding and digital designs.</p>
+                </h3>
 
-        <div class="info-box">
-            <div class="email-info">
-                <h5>Email :</h5>
-                <span>xyz@gmail.com</span>
+
             </div>
-            <div class="behance-info">
-                <h5>Behance :</h5>
-                <span>behance.net/abc</span>
+            <p>Product Designer and Digital Creative Director working in design field for 10 years so far.specialized in
+                UI/UX, Branding and digital designs.</p>
+
+            <div class="info-box">
+                <div class="email-info">
+                    <h5>Email :</h5>
+                    <span>xyz@gmail.com</span>
+                </div>
+                <div class="behance-info">
+                    <h5>Behance :</h5>
+                    <span>behance.net/abc</span>
+                </div>
             </div>
-        </div>
             <div class="btn-box">
                 <a href="cv.html" class="btn">Generate CV</a>
                 <a href="#contact" class="btn">Hire Me Now!</a>
             </div>
 
-    </div>
-    <div class="home-image">
-        <div class="img-box">
-            <img src="man.png" alt="pic of john"></img>
         </div>
-       <div class="liquid-shape">
-        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
-            <path  fill="#12f7ff">
-                <animate attributeName="d"
-                 dur="10000ms"
-                 repeatCount="indefinite"
-                 values="
+        <div class="home-image">
+            <div class="img-box">
+                <img src="man.png" alt="pic of john"></img>
+            </div>
+            <div class="liquid-shape">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="100%" id="blobSvg">
+                    <path fill="#12f7ff">
+                        <animate attributeName="d" dur="10000ms" repeatCount="indefinite" values="
                  M456.5,296.5Q427,343,404.5,392.5Q382,442,325.5,423.5Q269,405,220,431.5Q171,458,131,424.5Q91,391,95,339Q99,287,66,241.5Q33,196,84,172Q135,148,149.5,85.5Q164,23,218,44.5Q272,66,313,82.5Q354,99,379,134Q404,169,445,209.5Q486,250,456.5,296.5Z;
 
                  M415.5,291Q406,332,386,375Q366,418,321.5,445.5Q277,473,226.5,459.5Q176,446,132,419.5Q88,393,63,347.5Q38,302,67.5,257Q97,212,83,151Q69,90,125,78.5Q181,67,226.5,69Q272,71,313,85.5Q354,100,406,120.5Q458,141,441.5,195.5Q425,250,415.5,291Z;
@@ -354,18 +381,15 @@
 
                  M456.5,296.5Q427,343,404.5,392.5Q382,442,325.5,423.5Q269,405,220,431.5Q171,458,131,424.5Q91,391,95,339Q99,287,66,241.5Q33,196,84,172Q135,148,149.5,85.5Q164,23,218,44.5Q272,66,313,82.5Q354,99,379,134Q404,169,445,209.5Q486,250,456.5,296.5Z;
 
-                 "
-                ></animate>
-            </path>
-          </svg>
-       </div>
-       <div class="liquid-shape">
-        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
-            <path  fill="#12f7ff">
-                <animate attributeName="d"
-                 dur="10000ms"
-                 repeatCount="indefinite"
-                 values="
+                 "></animate>
+                    </path>
+                </svg>
+            </div>
+            <div class="liquid-shape">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="100%" id="blobSvg">
+                    <path fill="#12f7ff">
+                        <animate attributeName="d" dur="10000ms" repeatCount="indefinite" values="
                  M456.5,296.5Q427,343,404.5,392.5Q382,442,325.5,423.5Q269,405,220,431.5Q171,458,131,424.5Q91,391,95,339Q99,287,66,241.5Q33,196,84,172Q135,148,149.5,85.5Q164,23,218,44.5Q272,66,313,82.5Q354,99,379,134Q404,169,445,209.5Q486,250,456.5,296.5Z;
 
                  M415.5,291Q406,332,386,375Q366,418,321.5,445.5Q277,473,226.5,459.5Q176,446,132,419.5Q88,393,63,347.5Q38,302,67.5,257Q97,212,83,151Q69,90,125,78.5Q181,67,226.5,69Q272,71,313,85.5Q354,100,406,120.5Q458,141,441.5,195.5Q425,250,415.5,291Z;
@@ -382,18 +406,17 @@
 
                  M456.5,296.5Q427,343,404.5,392.5Q382,442,325.5,423.5Q269,405,220,431.5Q171,458,131,424.5Q91,391,95,339Q99,287,66,241.5Q33,196,84,172Q135,148,149.5,85.5Q164,23,218,44.5Q272,66,313,82.5Q354,99,379,134Q404,169,445,209.5Q486,250,456.5,296.5Z;
 
-                 "
-                ></animate>
-            </path>
-          </svg>
-       </div>
-  </div>
-</section>
+                 "></animate>
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </section>
 
-<!-- Back-to-Top Button -->
-<button id="back-to-top"><i class="bx bx-up-arrow-alt"></i></button>
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top"><i class="bx bx-up-arrow-alt"></i></button>
 
-            <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION -->
 
     <section id="about" class="about">
         <div class="img-about">
@@ -402,27 +425,28 @@
                 <span>10+</span>
                 <p>Years of Experience</p>
             </div>
-    
+
             <div class="info-about2">
                 <span>150+</span>
                 <p>Project Complete</p>
             </div>
-    
+
             <div class="info-about3">
                 <span>200+</span>
                 <p>Happy Coints</p>
             </div>
         </div>
-            <div class="about-content">
-                <h2>About Me</h2>
-                <span>Let me intoduce myself</span> 
-                <h3>Story of mine</h3>
-                <p>I'm Rehaan Narang, a digital creative with 10 years expertise in UI/UX, branding, and web design—bringing ideas to life through engaging, user-focused designs.</p>
-            
+        <div class="about-content">
+            <h2>About Me</h2>
+            <span>Let me intoduce myself</span>
+            <h3>Story of mine</h3>
+            <p>I'm Rehaan Narang, a digital creative with 10 years expertise in UI/UX, branding, and web design—bringing
+                ideas to life through engaging, user-focused designs.</p>
+
             <div class="btn-box">
                 <a href="about.html" class="btn">Read more!</a>
             </div>
-            </div>
+        </div>
     </section>
 
     <!-- SERVICE SECTION -->
@@ -439,47 +463,50 @@
                 <i class='bx bxs-layer service-icon'></i>
                 <h3>UI/UX Designer</h3>
                 <p>
-                    I design user-friendly websites and apps that are easy to use and look great. My goal is to make digital experiences enjoyable and simple for everyone.
+                    I design user-friendly websites and apps that are easy to use and look great. My goal is to make
+                    digital experiences enjoyable and simple for everyone.
                 </p>
                 <div class="btn-box service-btn">
                     <a href="service_1.html" class="btn">Read More</a>
                 </div>
             </div>
-        
 
-                <div class="service-box">
-                    <i class='bx bx-code-alt service-icon' ></i>
-                    <h3>Web Developer</h3>
-                    <p>
-                        I build responsive, eye-catching websites that work smoothly on all devices. I focus on clean code and interactive features to create sites that are fast and easy to navigate.
-                    </p>
-                    <div class="btn-box service-btn">
-                        <a href="service_2.html" class="btn">Read More</a>
-                    </div>
+
+            <div class="service-box">
+                <i class='bx bx-code-alt service-icon'></i>
+                <h3>Web Developer</h3>
+                <p>
+                    I build responsive, eye-catching websites that work smoothly on all devices. I focus on clean code
+                    and interactive features to create sites that are fast and easy to navigate.
+                </p>
+                <div class="btn-box service-btn">
+                    <a href="service_2.html" class="btn">Read More</a>
                 </div>
-            
+            </div>
 
-                    <div class="service-box">
-                        <i class='bx bx-desktop service-icon'></i>
-                        <h3>Graphic Designer</h3>
-                        <p>
-                            I bring ideas to life with creative designs. From logos to ads, I create graphics that help brands stand out and connect with their audience effectively.
-                        </p>
-                        <div class="btn-box service-btn">
-                            <a href="service_3.html" class="btn">Read More</a>
-                        </div>
-                    </div>
+
+            <div class="service-box">
+                <i class='bx bx-desktop service-icon'></i>
+                <h3>Graphic Designer</h3>
+                <p>
+                    I bring ideas to life with creative designs. From logos to ads, I create graphics that help brands
+                    stand out and connect with their audience effectively.
+                </p>
+                <div class="btn-box service-btn">
+                    <a href="service_3.html" class="btn">Read More</a>
+                </div>
+            </div>
 
         </div>
     </section>
 
-   
-
-   <!------------skill section----------->
 
 
- 
-    <section id ="skills" class="skills">
+    <!------------skill section----------->
+
+
+
+    <section id="skills" class="skills">
         <div class="main-text">
             <span>Technical and Professional</span>
             <h2>My Skills</h2>
@@ -545,8 +572,8 @@
                             <big>90%</big>
                             <small>Team work</small>
                         </div>
-                    </div>  
-                    
+                    </div>
+
                     <div class="box">
                         <div class="circle">
                             <div class="points" style="--i:1;"></div>
@@ -554,7 +581,7 @@
                             <div class="points" style="--i:1;"></div>
                         </div>
                         <div class="circle" data-dots="80" data-percent="80"></div>
-                            
+
                         <div class="text">
                             <big>80%</big>
                             <small>Creativity</small>
@@ -568,7 +595,7 @@
                         </div>
                         <div class="circle" data-dots="80" data-percent="55"></div>
                         <div class="text">
-                            <big>55%</big>    
+                            <big>55%</big>
                             <small>Project Management</small>
                         </div>
                     </div>
@@ -577,7 +604,7 @@
                         <div class="circle">
                             <div class="points" style="--i:1;"></div>
                             <div class="points" style="--i:1;"></div>
-                            <div class="points" style="--i:1;"></div>   
+                            <div class="points" style="--i:1;"></div>
                         </div>
                         <div class="circle" data-dots="80" data-percent="70"></div>
                         <div class="text">
@@ -588,103 +615,109 @@
 
 
                 </div>
-                   
+
             </div>
         </div>
     </section>
 
-    
-    <!--Portfolio-->>
+
+    <!--Portfolio-->
     <section id="portfolio" class="portfolio">
         <div class="main-text">
             <span>What I will do for you</span>
             <h2>Latest Project</h2>
         </div>
-    <div class="container">
-        <div class="fillter-buttons">
-            <button class="btn"data-filter="product">Product</button>
-            <button class="btn"data-filter="inter">Interacting</button>
-            <button class="btn"data-filter="web">Web app</button>
-        </div>
-    
-        <div class="portfolio-gallery">
-            <div class="port-box mix product">
-                <div class="port-image">
-                    <img src="mo1.jpg"alt="replace">
-                </div>
-                <div class="port-content">
-                    <h3>Social Media Graphics</h3>
-                    <p>
-                        Created eye-catching graphics for social media to boost brand visibility and engagement, helping clients connect with their audience effectively.
-                    </p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
-                    
-                </div>
+        <div class="container">
+            <div class="fillter-buttons">
+                <button class="btn" data-filter="product">Product</button>
+                <button class="btn" data-filter="inter">Interacting</button>
+                <button class="btn" data-filter="web">Web app</button>
             </div>
 
-            <div class="port-box mix product">
-                <div class="port-image">
-                    <img src="mo2.jpg"alt="replace">
+            <div class="portfolio-gallery">
+                <div class="port-box mix product">
+                    <div class="port-image">
+                        <img src="mo1.jpg" alt="replace">
+                    </div>
+                    <div class="port-content">
+                        <h3>Social Media Graphics</h3>
+                        <p>
+                            Created eye-catching graphics for social media to boost brand visibility and engagement,
+                            helping clients connect with their audience effectively.
+                        </p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+
+                    </div>
                 </div>
-                <div class="port-content">
-                    <h3>Logo Design</h3>
-                    <p>
-                        Designed a unique logo that reflects the brand's identity, ensuring it stands out and leaves a lasting impression on customers.
-                    </p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
-                    
+
+                <div class="port-box mix product">
+                    <div class="port-image">
+                        <img src="mo2.jpg" alt="replace">
+                    </div>
+                    <div class="port-content">
+                        <h3>Logo Design</h3>
+                        <p>
+                            Designed a unique logo that reflects the brand's identity, ensuring it stands out and leaves
+                            a lasting impression on customers.
+                        </p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+
+                    </div>
                 </div>
-            </div>
-            <div class="port-box mix inter">
-                <div class="port-image">
-                    <img src="mo3.jpg"alt="replace">
+                <div class="port-box mix inter">
+                    <div class="port-image">
+                        <img src="mo3.jpg" alt="replace">
+                    </div>
+                    <div class="port-content">
+                        <h3>E-commerece site</h3>
+                        <p>
+                            Built a user-friendly e-commerce website that makes online shopping easy and enjoyable, with
+                            smooth navigation and secure checkout options.
+                        </p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+                    </div>
                 </div>
-                <div class="port-content">
-                    <h3>E-commerece site</h3>
-                    <p>
-                        Built a user-friendly e-commerce website that makes online shopping easy and enjoyable, with smooth navigation and secure checkout options.
-                    </p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                <div class="port-box mix inter">
+                    <div class="port-image">
+                        <img src="mo4.jpg" alt="replace">
+                    </div>
+                    <div class="port-content">
+                        <h3>Music Player</h3>
+                        <p>
+                            Developed a sleek music player app that provides an intuitive interface, allowing users to
+                            easily stream and organize their favorite tracks.
+                        </p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="port-box mix inter">
-                <div class="port-image">
-                    <img src="mo4.jpg"alt="replace">
+                <div class="port-box mix inter">
+                    <div class="port-image">
+                        <img src="mo5.jpg" alt="replace">
+                    </div>
+                    <div class="port-content">
+                        <h3>Weather Forecast</h3>
+                        <p>
+                            Created a simple weather forecast app that delivers accurate and real-time weather updates,
+                            helping users plan their days with confidence.
+                        </p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+                    </div>
                 </div>
-                <div class="port-content">
-                    <h3>Music Player</h3>
-                    <p>
-                        Developed a sleek music player app that provides an intuitive interface, allowing users to easily stream and organize their favorite tracks.
-                    </p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="port-box mix inter">
-                <div class="port-image">
-                    <img src="mo5.jpg"alt="replace">
-                </div>
-                <div class="port-content">
-                    <h3>Weather Forecast</h3>
-                    <p>
-                        Created a simple weather forecast app that delivers accurate and real-time weather updates, helping users plan their days with confidence.
-                    </p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="port-box mix web">
-                <div class="port-image">
-                    <img src="mo6.jpg"alt="replace">
-                </div>
-                <div class="port-content">
-                    <h3>Quiz Game</h3>
-                    <p>
-                        Designed an engaging quiz game app that entertains users while testing their knowledge, featuring fun questions and a user-friendly layout.
-                    </p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                <div class="port-box mix web">
+                    <div class="port-image">
+                        <img src="mo6.jpg" alt="replace">
+                    </div>
+                    <div class="port-content">
+                        <h3>Quiz Game</h3>
+                        <p>
+                            Designed an engaging quiz game app that entertains users while testing their knowledge,
+                            featuring fun questions and a user-friendly layout.
+                        </p>
+                        <a href="#"><i class='bx bx-link-external'></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </section>
 
     <!-- CONTACT US  -->
@@ -693,7 +726,7 @@
             <span class="neon-text">LETS CONNECT</span>
             <h2 class="neon-text">Contact Me</h2>
         </div>
-    
+
         <section id="contact-section" class="contact-section">
             <div class="contact-container">
                 <h2 class="black">Contact Me</h2>
@@ -711,99 +744,101 @@
             </div>
         </section>
     </section>
-    
+
     <!-- REVIEW SECTION -->
-<section id="review" class="review">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-    
-    <div class="container">
-        <h1>Portfolio Review</h1>
+    <section id="review" class="review">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 
-        <!-- Review Form -->
-        <div class="review-form">
-            <h2>Share Your Feedback</h2>
+        <div class="container">
+            <h1>Portfolio Review</h1>
 
-            <form id="review-form">
-                <div class="rating">
-                    <input type="radio" id="star5" name="rating" value="5">
-                    <label for="star5">★</label>
-                    <input type="radio" id="star4" name="rating" value="4">
-                    <label for="star4">★</label>
-                    <input type="radio" id="star3" name="rating" value="3">
-                    <label for="star3">★</label>
-                    <input type="radio" id="star2" name="rating" value="2">
-                    <label for="star2">★</label>
-                    <input type="radio" id="star1" name="rating" value="1">
-                    <label for="star1">★</label>
-                </div>
+            <!-- Review Form -->
+            <div class="review-form">
+                <h2>Share Your Feedback</h2>
 
-                <input type="text" id="review-name" placeholder="Your Name (optional)">
-                <textarea id="review-text" placeholder="Write your review here..." required></textarea>
+                <form id="review-form">
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
 
-                <input type="submit" value="Submit Review">
-            </form>
+                    <input type="text" id="review-name" placeholder="Your Name (optional)">
+                    <textarea id="review-text" placeholder="Write your review here..." required></textarea>
+
+                    <input type="submit" value="Submit Review">
+                </form>
+            </div>
+
+            <!-- Reviews Container -->
+            <div id="reviews-container"></div>
         </div>
+    </section>
 
-        <!-- Reviews Container -->
-        <div id="reviews-container"></div>
-    </div>
-</section>
+
 
     <!-- FOOTER SECTION -->
     <footer>
         <p>Copyright &copy; 2025 || All Rights Reserved.</p>
-        
+
     </footer>
 
 
-<script src="skills.js"></script>
-<script src="mixitup.min.js"></script>
-<script src="script.js"></script>
-<script src="cv.js"></script>
+    <script src="skills.js"></script>
+    <script src="mixitup.min.js"></script>
+    <script src="script.js"></script>
+    <script src="cv.js"></script>
 
-<script>
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        document.querySelector('header').classList.toggle('dark-mode');
-        document.querySelector('footer').classList.toggle('dark-mode');
-        document.querySelectorAll('.btn').forEach(btn => btn.classList.toggle('dark-mode'));
-        darkModeToggle.classList.toggle('dark-mode');
-    });
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('header').classList.toggle('dark-mode');
+            document.querySelector('footer').classList.toggle('dark-mode');
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.toggle('dark-mode'));
+            darkModeToggle.classList.toggle('dark-mode');
+        });
 
-    // Back-to-Top Button
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) {
-            backToTop.style.display = 'block';
-        } else {
-            backToTop.style.display = 'none';
-        }
-    });
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+        // Back-to-Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-    document.getElementById('review-form').addEventListener('submit', function (event) {
-        event.preventDefault();
+        document.getElementById('review-form').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-        const rating = document.querySelector('input[name="rating"]:checked');
-        const reviewText = document.getElementById('review-text').value;
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const reviewText = document.getElementById('review-text').value;
 
-        if (!rating || reviewText.trim() === '') {
-            alert('Please provide a rating and a review.');
-            return;
-        }
+            if (!rating || reviewText.trim() === '') {
+                alert('Please provide a rating and a review.');
+                return;
+            }
 
-        const ratingValue = rating.value;
-        const reviewName = document.getElementById('review-name').value || 'Anonymous';
-        const timestamp = new Date().toLocaleString();
+            const ratingValue = rating.value;
+            const reviewName = document.getElementById('review-name').value || 'Anonymous';
+            const timestamp = new Date().toLocaleString();
 
-        const reviewItem = document.createElement('div');
-        reviewItem.classList.add('review-item');
+            const reviewItem = document.createElement('div');
+            reviewItem.classList.add('review-item');
 
-        reviewItem.innerHTML = `
+            reviewItem.innerHTML = `
             <div class="rating">
                 ${'★'.repeat(ratingValue)}${'☆'.repeat(5 - ratingValue)}
             </div>
@@ -812,12 +847,13 @@
             <small class="timestamp">${timestamp}</small>
         `;
 
-        document.getElementById('reviews-container').appendChild(reviewItem);
+            document.getElementById('reviews-container').appendChild(reviewItem);
 
-        document.getElementById('review-form').reset();
-        document.querySelector('input[name="rating"]:checked').checked = false;
-    });
-</script>
+            document.getElementById('review-form').reset();
+            document.querySelector('input[name="rating"]:checked').checked = false;
+        });
+    </script>
 
 </body>
+
 </html>
