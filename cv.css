@@ -17,22 +17,22 @@ body {
 
 #cvFormSection {
   width: 100%;
-  max-width: 500px;
-  margin: 20px;
+  max-width: 800px;
+  margin: 20px auto;
   padding: 20px;
   animation: fadeIn 1.2s ease;
-
 }
 
 .form-container {
-  background-color:#292e33;
-  padding: 25px;
+  background-color: #292e33;
+  padding: 35px;
   border-radius: 10px;
   box-shadow: 0 8px 20px #12f7ff;
   transform: scale(1);
   transition: transform 0.3s ease;
   border-image: linear-gradient(45deg, #12f7ff, #0cb6d4, #11859c) 1;
   border: 3px solid;
+  width: 100%;
 }
 
 .form-container:hover {
@@ -69,15 +69,11 @@ p {
   border-radius: 5px;
   font-size: 14px;
   transition: box-shadow 0.3s ease;
- 
 }
 
 #cvForm input:focus, #cvForm textarea:focus {
   box-shadow:  0 10px 30px #292e33;
   outline: none;
-
-  
- 
 }
 
 #cvForm button {
@@ -209,11 +205,339 @@ input.valid {
     cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
+    #cvFormSection {
+        max-width: 90%;
+        margin: 15px auto;
+    }
+    
     .form-container {
-        margin: 1rem;
-        padding: 1.5rem;
+        padding: 25px;
     }
 }
 
+@media (max-width: 480px) {
+    #cvFormSection {
+        max-width: 95%;
+        margin: 10px auto;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(18, 247, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    background: transparent;
+    color: #bdbdbd;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #12f7ff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #12f7ff;
+}
+
+.tab-btn.active::after {
+    transform: scaleX(1);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Input with Icons */
+.input-with-icon {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #12f7ff;
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.input-with-icon input,
+.input-with-icon textarea {
+    display: block;
+    width: 100%;
+    padding: 12px 12px 12px 40px !important;
+    background-color: rgba(41, 46, 51, 0.5);
+    border: 1px solid #292e33;
+    border-radius: 5px;
+    color: #f5f5f5;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.input-with-icon input::placeholder,
+.input-with-icon textarea::placeholder {
+    color: rgba(189, 189, 189, 0.7);
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.input-with-icon input:focus,
+.input-with-icon textarea:focus {
+    outline: none;
+    border-color: #12f7ff;
+    box-shadow: 0 0 10px rgba(18, 247, 255, 0.2);
+}
+
+.input-with-icon textarea {
+    min-height: 120px;
+    resize: vertical;
+    padding-top: 35px;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+/* Form Row Adjustments */
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-group.half {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .input-with-icon input,
+    .input-with-icon textarea {
+        font-size: 16px;
+    }
+    
+    .form-group.half {
+        min-width: 100%;
+    }
+}
+
+/* Education & Experience Entries */
+.education-entry,
+.experience-entry {
+    background: rgba(41, 46, 51, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(18, 247, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.education-entry:hover,
+.experience-entry:hover {
+    border-color: #12f7ff;
+    box-shadow: 0 0 20px rgba(18, 247, 255, 0.1);
+}
+
+/* Add More Button */
+.add-more-btn {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: 2px dashed rgba(18, 247, 255, 0.3);
+    color: #12f7ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.add-more-btn:hover {
+    background: rgba(18, 247, 255, 0.1);
+    border-style: solid;
+}
+
+/* Skill Tags */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.skill-tag {
+    background: rgba(18, 247, 255, 0.1);
+    color: #12f7ff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: #12f7ff;
+    color: #080510;
+}
+
+.skill-tag i {
+    cursor: pointer;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-actions button {
+    flex: 1;
+}
+
+.preview-btn {
+    background: transparent;
+    border: 2px solid #12f7ff;
+    color: #12f7ff;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 5, 16, 0.9);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: #292e33;
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 2px solid #12f7ff;
+    box-shadow: 0 0 30px rgba(18, 247, 255, 0.2);
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #12f7ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    transform: rotate(90deg);
+}
+
+/* CV Preview */
+.cv-preview {
+    color: #f5f5f5;
+}
+
+.cv-preview h1 {
+    color: #12f7ff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.cv-preview section {
+    margin-bottom: 2rem;
+}
+
+.cv-preview h2 {
+    color: #12f7ff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(18, 247, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tabs {
+        flex-wrap: wrap;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+
+  
   
