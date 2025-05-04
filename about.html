@@ -6,21 +6,174 @@
     <title>About Me - Your Name</title>
     <link rel="stylesheet" href="about.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <section class="about-section">
-        <div class="content-wrapper">
-            <h1>About Me</h1>
-            <p>
-                I am a Product Designer & Digital Creative Director with 10 years of experience in the design field.
-                Specializing in UI/UX, branding, and digital design, I create thoughtful, user-centered solutions that connect
-                with audiences. Known for my creativity and dedication, I strive to deliver high-quality designs that not only
-                look great but also enhance usability and functionality. My passion for design drives me to stay updated with
-                the latest trends, ensuring my work remains fresh and impactful. My mission is to turn ideas into engaging,
-                visually appealing digital experiences.
-            </p>
-        </div>
-    </section>
+    <div class="about-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>About Me</h1>
+                <div class="tagline">Product Designer & Digital Creative Director</div>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#" class="social-icon"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="social-icon"><i class='bx bxl-dribbble'></i></a>
+                    <a href="#" class="social-icon"><i class='bx bxl-behance'></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <div class="section-content">
+                <h2>Who I Am</h2>
+                <p class="intro-text">
+                    I am a passionate Product Designer & Digital Creative Director with 10 years of experience in the design field.
+                    My journey in design has been driven by a simple philosophy: create thoughtful, user-centered solutions that
+                    not only look beautiful but also solve real problems.
+                </p>
+                <div class="quick-info">
+                    <div class="info-item">
+                        <i class='bx bx-map'></i>
+                        <span>Based in India</span>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bx-briefcase'></i>
+                        <span>Available for Freelance</span>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bx-envelope'></i>
+                        <span>your.email@example.com</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="expertise-section">
+            <div class="section-content">
+                <h2>My Expertise</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <i class='bx bx-palette'></i>
+                        <h3>UI/UX Design</h3>
+                        <p>Creating intuitive and engaging user experiences through thoughtful interface design.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <i class='bx bx-code-alt'></i>
+                        <h3>Web Development</h3>
+                        <p>Building responsive and dynamic websites using modern web technologies.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <i class='bx bx-brush'></i>
+                        <h3>Brand Identity</h3>
+                        <p>Developing unique and memorable brand identities that resonate with target audiences.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <i class='bx bx-mobile-alt'></i>
+                        <h3>Mobile Design</h3>
+                        <p>Designing mobile-first experiences that work seamlessly across all devices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section class="journey-section">
+            <div class="section-content">
+                <h2>My Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="year">2023</div>
+                        <div class="event">
+                            <h3>Senior Product Designer</h3>
+                            <p>Leading design initiatives for major tech products</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2020</div>
+                        <div class="event">
+                            <h3>UI/UX Team Lead</h3>
+                            <p>Managing design teams and establishing design systems</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2018</div>
+                        <div class="event">
+                            <h3>Digital Designer</h3>
+                            <p>Creating digital experiences for various clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="section-content">
+                <h2>My Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class='bx bx-bulb'></i>
+                        <h3>Innovation</h3>
+                        <p>Always pushing boundaries and exploring new possibilities in design.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class='bx bx-heart'></i>
+                        <h3>User-Centered</h3>
+                        <p>Putting users first in every design decision.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class='bx bx-target-lock'></i>
+                        <h3>Precision</h3>
+                        <p>Attention to detail in every pixel and interaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="section-content">
+                <h2>Let's Work Together</h2>
+                <p>Interested in collaborating or learning more about my work?</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button primary">View Portfolio</a>
+                    <a href="#" class="cta-button secondary">Contact Me</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
 
