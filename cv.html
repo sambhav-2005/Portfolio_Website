@@ -3,168 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Your Professional CV</title>
+  <title>Create Your CV</title>
   <link rel="stylesheet" href="cv.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="cv.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 </head>
 <body>
-  <div class="page-container">
-    <div class="header">
-      <div class="logo">
-        <i class="fas fa-file-alt"></i>
-      </div>
-      <h1>CV Builder</h1>
-      <p class="subtitle">Create a professional CV in minutes</p>
+  <section id="cvFormSection">
+    <div class="form-container">
+      <h2>Create Your Custom CV</h2>
+      <p>Fill in the details below to generate a personalized CV you can download.</p>
+      <form id="cvForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required placeholder="Your Full Name">
+
+        <label for="jobTitle">Job Title</label>
+        <input type="text" id="jobTitle" required placeholder="Your Job Title">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="Your Email">
+
+        <label for="skills">Skills (comma-separated)</label>
+        <input type="text" id="skills" required placeholder="E.g., JavaScript, UX Design">
+
+        <label for="experience">Experience</label>
+        <textarea id="experience" required placeholder="Describe your work experience..."></textarea>
+
+        <button type="button" onclick="generateCV()">Generate and Download CV</button>
+      </form>
     </div>
+  </section>
+  <script>
+  const username = document.getElementById('name');
+  const usernameError = document.getElementById('nameError');
+  const form = document.getElementById('advancedForm');
+  const email = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+  const jobTitle = document.getElementById('jobTitle');
+  const jobTitleError= document.getElementById('jobTitleError');
+  const skills = document.getElementById('skills');
+  const skillsError = document.getElementById('skillsError');
+  const experience = document.getElementById('experience');
+  const experienceError = document.getElementById('experienceError');
 
-    <section id="cvFormSection">
-      <div class="form-container">
-        <div class="form-header">
-          <h2>Create Your Professional CV</h2>
-          <p>Fill in your details below to generate a beautifully formatted CV that you can download instantly.</p>
-        </div>
-        
-        <form id="cvForm">
-          <div class="form-section">
-            <div class="section-header">
-              <i class="fas fa-user"></i>
-              <h3>Personal Information</h3>
-            </div>
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" required placeholder="e.g., John Smith">
-              <span id="nameError" class="error-message"></span>
-            </div>
+  username.addEventListener('input',()=>validateUsername());
+  email.addEventListener('input',()=> validateemail());
+  jobTitle.addEventListener('input', ()=>validatejobTitle());
+  skills.addEventListener('input',()=> validateskills());
+  experience.addEventListener('input',()=> validateexperience());
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
 
-            <div class="form-group">
-              <label for="jobTitle">Current/Desired Job Title</label>
-              <input type="text" id="jobTitle" required placeholder="e.g., Senior Software Engineer">
-              <span id="jobTitleError" class="error-message"></span>
-            </div>
+    const isFormValid = [validateUsername(),validateemail(), validatejobTitle(),validateskills(),validateexperience()].every(Boolean);
 
-            <div class="form-group">
-              <label for="email">Professional Email</label>
-              <div class="input-icon-wrapper">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" required placeholder="e.g., john.smith@example.com">
-              </div>
-              <span id="emailError" class="error-message"></span>
-            </div>
+    if(isFormValid){
+      alert("Form Submitted successfully");
+    }
+  });
 
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <div class="input-icon-wrapper">
-                <i class="fas fa-phone"></i>
-                <input type="tel" id="phone" required placeholder="e.g., +1 (555) 123-4567">
-              </div>
-              <span id="phoneError" class="error-message"></span>
-            </div>
+  function validateUsername() {
+    const value = username.value.trim();
+    const regex = /^[a-zA-Z0-9]{3,}$/
 
-            <div class="form-group">
-              <label for="address">Address</label>
-              <div class="input-icon-wrapper">
-                <i class="fas fa-location-dot"></i>
-                <input type="text" id="address" required placeholder="e.g., 123 Main St, City, Country">
-              </div>
-              <span id="addressError" class="error-message"></span>
-            </div>
+    if(!value){
+      setError(username,usernameError,"Username is required!");
+      return false;
+    }else if(!regex.test(value)){
+      setError(username,usernameError,"Username must be 3 characters long and alphanumeric");
+      return false;
+    }else{
+      setSuccess(username,usernameError);
+      return true;
+    }
+  }
 
-            <div class="form-section">
-              <div class="section-header">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Education</h3>
-              </div>
-              <div id="education-container">
-                <div class="education-entry">
-                  <div class="form-group">
-                    <label for="degree">Degree/Certificate</label>
-                    <div class="input-icon-wrapper">
-                      <i class="fas fa-scroll"></i>
-                      <input type="text" name="degree" required placeholder="e.g., Bachelor of Science in Computer Science">
-                    </div>
-                  </div>
+  function validateemail(){
+    const value = email.value.trim();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if(!value){
+      setError(email,emailError,"Email is required!");
+      return false;
+    }else if(!regex.test(value)){
+      setError(email,emailError,"Email is invalid");
+      return false;
+    }else{
+      setSuccess(email,emailError);
+      return true;
+    }
 
-                  <div class="form-group">
-                    <label for="institution">Institution</label>
-                    <div class="input-icon-wrapper">
-                      <i class="fas fa-university"></i>
-                      <input type="text" name="institution" required placeholder="e.g., Stanford University">
-                    </div>
-                  </div>
+    }
 
-                  <div class="form-row">
-                    <div class="form-group half">
-                      <label for="eduStartDate">Start Date</label>
-                      <div class="input-icon-wrapper">
-                        <i class="fas fa-calendar"></i>
-                        <input type="month" name="eduStartDate" required>
-                      </div>
-                    </div>
 
-                    <div class="form-group half">
-                      <label for="eduEndDate">End Date</label>
-                      <div class="input-icon-wrapper">
-                        <i class="fas fa-calendar"></i>
-                        <input type="month" name="eduEndDate" required>
-                      </div>
-                    </div>
-                  </div>
+  function setError(input,errorElement,message){
+    input.classList.add('invalid');
+    input.classList.remove('valid');
+    errorElement.textContent = message;
+  }
 
-                  <div class="form-group">
-                    <label for="achievements">Achievements/Activities</label>
-                    <div class="textarea-icon-wrapper">
-                      <i class="fas fa-trophy"></i>
-                      <textarea name="achievements" placeholder="e.g., Dean's List, Academic Scholarships, Relevant Coursework"></textarea>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="add-more-btn" onclick="addEducationEntry()">
-                <i class="fas fa-plus"></i> Add More Education
-              </button>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <div class="section-header">
-              <i class="fas fa-tools"></i>
-              <h3>Skills & Experience</h3>
-            </div>
-            <div class="form-group">
-              <label for="skills">Professional Skills</label>
-              <div class="input-icon-wrapper">
-                <i class="fas fa-star"></i>
-                <input type="text" id="skills" required placeholder="e.g., JavaScript, React, Node.js, Project Management">
-              </div>
-              <span id="skillsError" class="error-message"></span>
-              <small class="helper-text"><i class="fas fa-info-circle"></i> Separate skills with commas</small>
-            </div>
-
-            <div class="form-group">
-              <label for="experience">Professional Experience</label>
-              <div class="textarea-icon-wrapper">
-                <i class="fas fa-briefcase"></i>
-                <textarea id="experience" required placeholder="Describe your relevant work experience, including your roles, responsibilities, and achievements..."></textarea>
-              </div>
-              <span id="experienceError" class="error-message"></span>
-            </div>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" id="generateButton">
-              <i class="fas fa-file-download"></i> Generate and Download CV
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p>© 2024 CV Builder. Create your professional CV with confidence.</p>
-    </footer>
-  </div>
-  <script src="cv.js"></script>
+  function setSuccess(input,errorElement){
+    input.classList.add('valid');
+    input.classList.remove('invalid');
+    errorElement.textContent = '';
+  }
+  </script>
 </body>
 </html>
