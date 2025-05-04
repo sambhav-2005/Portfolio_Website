@@ -5,107 +5,167 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Your CV</title>
   <link rel="stylesheet" href="cv.css">
-  <script src="cv.js"></script>
+  <script src="cv.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <section id="cvFormSection">
-    <div class="form-container">
-      <h2>Create Your Custom CV</h2>
-      <p>Fill in the details below to generate a personalized CV you can download.</p>
-      <form id="cvForm">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" required placeholder="Your Full Name">
+  <div class="page-wrapper">
+    <section id="cvFormSection">
+      <div class="form-container">
+        <h2>Create Your Custom CV</h2>
+        <p>Fill in the details below to generate a personalized CV you can download.</p>
+        
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="personal">Personal Info</button>
+          <button class="tab-btn" data-tab="education">Education</button>
+          <button class="tab-btn" data-tab="experience">Experience</button>
+          <button class="tab-btn" data-tab="skills">Skills</button>
+        </div>
 
-        <label for="jobTitle">Job Title</label>
-        <input type="text" id="jobTitle" required placeholder="Your Job Title">
+        <form id="cvForm">
+          <!-- Personal Information Tab -->
+          <div class="tab-content active" id="personal">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <div class="input-with-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" required placeholder="Your Full Name">
+              </div>
+            </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" required placeholder="Your Email">
+            <div class="form-group">
+              <label for="jobTitle">Job Title</label>
+              <div class="input-with-icon">
+                <i class="fas fa-briefcase"></i>
+                <input type="text" id="jobTitle" required placeholder="Your Job Title">
+              </div>
+            </div>
 
-        <label for="skills">Skills (comma-separated)</label>
-        <input type="text" id="skills" required placeholder="E.g., JavaScript, UX Design">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <div class="input-with-icon">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" required placeholder="Your Email">
+              </div>
+            </div>
 
-        <label for="experience">Experience</label>
-        <textarea id="experience" required placeholder="Describe your work experience..."></textarea>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <div class="input-with-icon">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="phone" placeholder="Your Phone Number">
+              </div>
+            </div>
+          </div>
 
-        <button type="button" onclick="generateCV()">Generate and Download CV</button>
-      </form>
+          <!-- Education Tab -->
+          <div class="tab-content" id="education">
+            <div class="education-entries">
+              <div class="education-entry">
+                <div class="form-group">
+                  <label>Degree</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                    <input type="text" name="degree" placeholder="e.g., Bachelor of Science">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Institution</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-university"></i>
+                    <input type="text" name="institution" placeholder="University/College Name">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group half">
+                    <label>Start Date</label>
+                    <input type="month" name="eduStartDate">
+                  </div>
+                  <div class="form-group half">
+                    <label>End Date</label>
+                    <input type="month" name="eduEndDate">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="add-more-btn" onclick="addEducationEntry()">
+              <i class="fas fa-plus"></i> Add More Education
+            </button>
+          </div>
+
+          <!-- Experience Tab -->
+          <div class="tab-content" id="experience">
+            <div class="experience-entries">
+              <div class="experience-entry">
+                <div class="form-group">
+                  <label>Position</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-briefcase"></i>
+                    <input type="text" name="position" placeholder="e.g., Software Developer">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Company</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-building"></i>
+                    <input type="text" name="company" placeholder="Company Name">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group half">
+                    <label>Start Date</label>
+                    <input type="month" name="expStartDate">
+                  </div>
+                  <div class="form-group half">
+                    <label>End Date</label>
+                    <input type="month" name="expEndDate">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea name="description" placeholder="Describe your responsibilities and achievements..."></textarea>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="add-more-btn" onclick="addExperienceEntry()">
+              <i class="fas fa-plus"></i> Add More Experience
+            </button>
+          </div>
+
+          <!-- Skills Tab -->
+          <div class="tab-content" id="skills">
+            <div class="form-group">
+              <label for="skills">Skills (comma-separated)</label>
+              <div class="input-with-icon">
+                <i class="fas fa-star"></i>
+                <input type="text" id="skills" required placeholder="e.g., JavaScript, React, Node.js">
+              </div>
+            </div>
+            <div id="skillTags" class="skill-tags"></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="preview-btn" onclick="previewCV()">
+              <i class="fas fa-eye"></i> Preview CV
+            </button>
+            <button type="button" onclick="generateCV()">
+              <i class="fas fa-download"></i> Generate and Download CV
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="cvPreview" class="cv-preview">
+          <!-- Preview content will be inserted here -->
+        </div>
+      </div>
     </div>
-  </section>
-  <script>
-  const username = document.getElementById('name');
-  const usernameError = document.getElementById('nameError');
-  const form = document.getElementById('advancedForm');
-  const email = document.getElementById('email');
-  const emailError = document.getElementById('emailError');
-  const jobTitle = document.getElementById('jobTitle');
-  const jobTitleError= document.getElementById('jobTitleError');
-  const skills = document.getElementById('skills');
-  const skillsError = document.getElementById('skillsError');
-  const experience = document.getElementById('experience');
-  const experienceError = document.getElementById('experienceError');
-
-  username.addEventListener('input',()=>validateUsername());
-  email.addEventListener('input',()=> validateemail());
-  jobTitle.addEventListener('input', ()=>validatejobTitle());
-  skills.addEventListener('input',()=> validateskills());
-  experience.addEventListener('input',()=> validateexperience());
-  form.addEventListener('submit',function(event){
-    event.preventDefault();
-
-    const isFormValid = [validateUsername(),validateemail(), validatejobTitle(),validateskills(),validateexperience()].every(Boolean);
-
-    if(isFormValid){
-      alert("Form Submitted successfully");
-    }
-  });
-
-  function validateUsername() {
-    const value = username.value.trim();
-    const regex = /^[a-zA-Z0-9]{3,}$/
-
-    if(!value){
-      setError(username,usernameError,"Username is required!");
-      return false;
-    }else if(!regex.test(value)){
-      setError(username,usernameError,"Username must be 3 characters long and alphanumeric");
-      return false;
-    }else{
-      setSuccess(username,usernameError);
-      return true;
-    }
-  }
-
-  function validateemail(){
-    const value = email.value.trim();
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if(!value){
-      setError(email,emailError,"Email is required!");
-      return false;
-    }else if(!regex.test(value)){
-      setError(email,emailError,"Email is invalid");
-      return false;
-    }else{
-      setSuccess(email,emailError);
-      return true;
-    }
-
-    }
-
-
-  function setError(input,errorElement,message){
-    input.classList.add('invalid');
-    input.classList.remove('valid');
-    errorElement.textContent = message;
-  }
-
-  function setSuccess(input,errorElement){
-    input.classList.add('valid');
-    input.classList.remove('invalid');
-    errorElement.textContent = '';
-  }
-  </script>
+  </div>
 </body>
 </html>
