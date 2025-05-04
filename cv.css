@@ -1,112 +1,311 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(8, 5, 16);;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    color: #f9fafb;
-  }
-  
-  #cvFormSection {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px;
-    padding: 20px;
-    animation: fadeIn 1.2s ease;
+/* Global Styles */
+:root {
+  --primary-color: #12f7ff;
+  --primary-dark: #0dcaf0;
+  --primary-light: #90e0ef;
+  --background-color: #080510;
+  --text-color: #f5f5f5;
+  --text-light: #bdbdbd;
+  --error-color: #dc2626;
+  --success-color: #059669;
+  --border-color: #292e33;
+  --card-bg: #292e33;
+  --white: #ffffff;
+  --neon-box-shadow: 0 0 .5rem #12f7ff;
+  --neon-text-shadow: 0 0 10px rgba(18, 247, 255, 0.3),
+    0 0 20px rgba(18, 247, 255, 0.3),
+    0 0 30px rgba(18, 247, 255, 0.3),
+    0 0 40px rgba(18, 247, 255, 0.3);
+}
 
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  min-height: 100vh;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 2rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(45deg, var(--primary-color), var(--primary-light)) 1;
+}
+
+.logo {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  text-shadow: var(--neon-text-shadow);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary-color);
+  text-shadow: var(--neon-text-shadow);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0.5rem 0 0;
+  color: var(--text-light);
+}
+
+/* Form Container Styles */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 3px solid;
+  border-image: linear-gradient(45deg, var(--primary-color), var(--primary-light)) 1;
+  box-shadow: var(--neon-box-shadow);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-shadow: var(--neon-text-shadow);
+}
+
+.form-header p {
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* Form Section Styles */
+.form-section {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.form-section:hover {
+  transform: scale(1.01);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.section-header i {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+  text-shadow: var(--neon-text-shadow);
+}
+
+.section-header h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.input-icon-wrapper, .textarea-icon-wrapper {
+  position: relative;
+}
+
+.input-icon-wrapper i, .textarea-icon-wrapper i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+}
+
+.textarea-icon-wrapper i {
+  top: 1.2rem;
+  transform: none;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+  padding-left: 2.5rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(18, 247, 255, 0.1);
+}
+
+.helper-text {
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.helper-text i {
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* Button Styles */
+.form-actions {
+  margin-top: 2rem;
+}
+
+button {
+  background-color: transparent;
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--neon-box-shadow);
+}
+
+button i {
+  margin-right: 0.75rem;
+  color: var(--primary-color);
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-2px);
+}
+
+button:hover i {
+  color: var(--background-color);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Validation Styles */
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+input.invalid, textarea.invalid {
+  border-color: var(--error-color);
+}
+
+input.valid, textarea.valid {
+  border-color: var(--success-color);
+}
+
+/* Footer Styles */
+.footer {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: auto;
+  border-top: 3px solid;
+  border-image: linear-gradient(45deg, var(--primary-color), var(--primary-light)) 1;
+}
+
+.footer p {
+  color: var(--text-light);
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem 0;
   }
-  
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
   .form-container {
-    background-color:#292e33;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px #12f7ff;
-    transform: scale(1);
-    transition: transform 0.3s ease;
-    border-image: linear-gradient(45deg, #12f7ff, #0cb6d4, #11859c) 1;
-    border: 3px solid;
+    margin: 1rem;
+    padding: 1.5rem;
   }
-  
-  .form-container:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  h2 {
-    font-size: 30px;
-    color: #bff7f9;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  p {
-    color:#f3f9fa;
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  #cvForm label {
-    display: block;
-    font-weight: bold;
-    margin-top: 15px;
-    color:#02c6d7;
-  }
-  
-  #cvForm input, #cvForm textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: box-shadow 0.3s ease;
-   
-  }
-  
-  #cvForm input:focus, #cvForm textarea:focus {
-    box-shadow:  0 10px 30px #292e33;
-    outline: none;
 
-    
-   
+  .form-section {
+    padding: 1rem;
   }
-  
-  #cvForm button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  .section-header {
+    margin-bottom: 1rem;
   }
-  
-  #cvForm button:hover {
-    background-color: #45a049;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  /* Fade-In Animation */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.form-section {
+  animation: fadeIn 0.5s ease-out;
+}
   
