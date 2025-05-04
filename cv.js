@@ -47,6 +47,91 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (value.length < 50) return 'Please provide a more detailed experience description (minimum 50 characters)';
                 return '';
             }
+        },
+        phone: {
+            element: document.getElementById('phone'),
+            error: document.getElementById('phoneError'),
+            validate: (value) => {
+                if (!value) return 'Phone number is required';
+                if (!/^\+?[\d\s-()]{10,}$/.test(value)) return 'Please enter a valid phone number';
+                return '';
+            }
+        },
+        address: {
+            element: document.getElementById('address'),
+            error: document.getElementById('addressError'),
+            validate: (value) => {
+                if (!value) return 'Address is required';
+                if (value.length < 10) return 'Please enter a complete address';
+                return '';
+            }
+        }
+    };
+
+    // Education entry counter
+    let educationCount = 1;
+
+    // Function to add new education entry
+    window.addEducationEntry = function() {
+        educationCount++;
+        const container = document.getElementById('education-container');
+        const newEntry = document.createElement('div');
+        newEntry.className = 'education-entry';
+        newEntry.innerHTML = `
+            <div class="form-group">
+                <label for="degree${educationCount}">Degree/Certificate</label>
+                <div class="input-icon-wrapper">
+                    <i class="fas fa-scroll"></i>
+                    <input type="text" name="degree${educationCount}" required placeholder="e.g., Bachelor of Science in Computer Science">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="institution${educationCount}">Institution</label>
+                <div class="input-icon-wrapper">
+                    <i class="fas fa-university"></i>
+                    <input type="text" name="institution${educationCount}" required placeholder="e.g., Stanford University">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group half">
+                    <label for="eduStartDate${educationCount}">Start Date</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-calendar"></i>
+                        <input type="month" name="eduStartDate${educationCount}" required>
+                    </div>
+                </div>
+
+                <div class="form-group half">
+                    <label for="eduEndDate${educationCount}">End Date</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-calendar"></i>
+                        <input type="month" name="eduEndDate${educationCount}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="achievements${educationCount}">Achievements/Activities</label>
+                <div class="textarea-icon-wrapper">
+                    <i class="fas fa-trophy"></i>
+                    <textarea name="achievements${educationCount}" placeholder="e.g., Dean's List, Academic Scholarships, Relevant Coursework"></textarea>
+                </div>
+            </div>
+
+            <button type="button" class="remove-entry-btn" onclick="removeEducationEntry(this)">
+                <i class="fas fa-trash"></i> Remove Entry
+            </button>
+        `;
+        container.appendChild(newEntry);
+    };
+
+    // Function to remove education entry
+    window.removeEducationEntry = function(button) {
+        const entry = button.closest('.education-entry');
+        if (document.querySelectorAll('.education-entry').length > 1) {
+            entry.remove();
         }
     };
 
@@ -137,6 +222,37 @@ document.addEventListener('DOMContentLoaded', function() {
         const splitExperience = doc.splitTextToSize(inputs.experience.element.value, 170);
         doc.text(splitExperience, 20, 110);
         
+        // Add education section
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(16);
+        doc.text('Education', 20, 130);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(12);
+
+        let yPos = 140;
+        document.querySelectorAll('.education-entry').forEach((entry, index) => {
+            const degree = entry.querySelector('input[name^="degree"]').value;
+            const institution = entry.querySelector('input[name^="institution"]').value;
+            const startDate = entry.querySelector('input[name^="eduStartDate"]').value;
+            const endDate = entry.querySelector('input[name^="eduEndDate"]').value;
+            const achievements = entry.querySelector('textarea[name^="achievements"]').value;
+
+            doc.text(`${degree}`, 25, yPos);
+            doc.text(`${institution}`, 25, yPos + 7);
+            doc.text(`${startDate} - ${endDate}`, 25, yPos + 14);
+            
+            const achievementLines = doc.splitTextToSize(achievements, 160);
+            doc.text(achievementLines, 25, yPos + 21);
+
+            yPos += 35 + (achievementLines.length * 7);
+
+            // Add new page if needed
+            if (yPos > 270) {
+                doc.addPage();
+                yPos = 20;
+            }
+        });
+
         // Save the PDF
         doc.save('professional-cv.pdf');
         
