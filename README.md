@@ -31,6 +31,7 @@ cd Portfolio_Website
 
 <h2>📬 Contact</h2>
 <p>Have questions or feedback?<br>
+📧 Email: <a href="https://mail.google.com/">asijaparag5@gmail.com</a><br> 
 📧 Email: <a href="https://mail.google.com/">narulasambhav24@gmail.com</a><br> 
 📧 Email: <a href="https://mail.google.com/">sarthimahajan18@gmail.com</a><br>
 
