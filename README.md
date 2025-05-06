@@ -25,7 +25,7 @@ cd Portfolio_Website
 
 <h2>🧑‍💻 Contributing</h2>
 <p>We welcome your contributions! If you have ideas to enhance Portfolio_Website, feel free to fork the repo, open issues, or submit pull requests.
-Your creative ideas are </p>
+Your creative ideas and suggestions would be very helpful to us.</p>
 
 <h2>🌐 Live Demo</h2>
 <p>🔗 <a href="https://sambhav-2005.github.io/Portfolio_Website/"> View Live Website </a></p>
